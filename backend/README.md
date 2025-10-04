@@ -6,9 +6,9 @@ Este é o repositório do nosso Projeto Integrador da Unicamp. Estamos construin
 
 ### 🎯 O Problema que Estamos Resolvendo
 
-A comunicação no grupo atualmente depende de cadernos físicos e WhatsApp[cite: 6, 24]. [cite_start]Isso causa problemas como perda de informações, dificuldade de organização e ruídos na comunicação.
+A comunicação no grupo atualmente depende de cadernos físicos e WhatsApp.Isso causa problemas como perda de informações, dificuldade de organização e ruídos na comunicação.
 
-Nosso objetivo é criar uma plataforma centralizada para acabar com essa bagunça. [cite_start]A ideia é ter um lugar único e confiável para todas as informações importantes, melhorando a comunicação e a eficiência do grupo.
+Nosso objetivo é criar uma plataforma centralizada para acabar com essa bagunça. A ideia é ter um lugar único e confiável para todas as informações importantes, melhorando a comunicação e a eficiência do grupo.
 
 ### ✨ Features Principais
 
