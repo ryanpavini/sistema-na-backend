@@ -1,6 +1,6 @@
 # 🚀 Sistema de Gestão - Narcóticos Anônimos (NA)
 
-Este é o repositório do nosso Projeto Integrador da Unicamp. Estamos construindo um sistema para ajudar um grupo de NA a organizar suas reuniões, eventos e comunicados.
+Este é o repositório do nosso Projeto Integrador da disciplina "Projeto Integrador" na Faculdade de Tecnologia da Universidade Estadual de Campinas (FT/UNICAMP). Estamos construindo um sistema para ajudar um grupo de NA a organizar suas reuniões, eventos e comunicados.
 
 ---
 
