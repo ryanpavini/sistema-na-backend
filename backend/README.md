@@ -12,11 +12,11 @@ Nosso objetivo é criar uma plataforma centralizada para acabar com essa bagunç
 
 ### ✨ Features Principais
 
-- [cite_start]**📅 Agenda de Reuniões:** Um calendário ou lista para ver todas as reuniões semanais[cite: 98].
-- [cite_start]**🎉 Mural de Eventos:** Uma área para divulgar eventos únicos, como confraternizações e workshops[cite: 100].
-- [cite_start]**📢 Dados da Secretaria:** Acesso rápido e transparente aos dados financeiros do grupo, como a Sétima Tradição[cite: 102].
-- [cite_start]**👀 Acesso Público:** Membros podem consultar tudo sem precisar de login[cite: 47, 49].
-- [cite_start]**🔒 Painel Admin:** Uma área segura para os servidores de confiança gerenciarem as informações[cite: 104].
+- **📅 Agenda de Reuniões:** Um calendário ou lista para ver todas as reuniões semanais[cite: 98].
+- **🎉 Mural de Eventos:** Uma área para divulgar eventos únicos, como confraternizações e workshops[cite: 100].
+- **📢 Dados da Secretaria:** Acesso rápido e transparente aos dados financeiros do grupo, como a Sétima Tradição[cite: 102].
+- **👀 Acesso Público:** Membros podem consultar tudo sem precisar de login[cite: 47, 49].
+- **🔒 Painel Admin:** Uma área segura para os servidores de confiança gerenciarem as informações[cite: 104].
 
 ### 🛠️ Nossa Stack
 
