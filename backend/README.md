@@ -16,7 +16,7 @@ Nosso objetivo é criar uma plataforma centralizada para acabar com essa bagunç
 - **🎉 Mural de Eventos:** Uma área para divulgar eventos únicos, como confraternizações e workshops[cite: 100].
 - **📢 Dados da Secretaria:** Acesso rápido e transparente aos dados financeiros do grupo, como a Sétima Tradição[cite: 102].
 - **👀 Acesso Público:** Membros podem consultar tudo sem precisar de login[cite: 47, 49].
-- **🔒 Painel Admin:** Uma área segura para os servidores de confiança gerenciarem as informações[cite: 104].
+-   **🔒 Painel Admin:** Uma área segura para os servidores de confiança gerenciarem as informações[cite: 104].
 
 ### 🛠️ Nossa Stack
 

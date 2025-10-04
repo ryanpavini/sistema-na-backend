@@ -14,7 +14,11 @@ model Admin {
   id        String   @id @default(uuid())
   name      String
   email     String   @unique
-  password  String
+  password  String?
+
+  passwordResetToken   String?   @unique
+  passwordResetExpires DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
