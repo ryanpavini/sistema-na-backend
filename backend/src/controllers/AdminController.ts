@@ -95,9 +95,11 @@ class AdminController {
 
       const token = jwt.sign({ id: admin.id }, jwtSecret, { expiresIn: '8h' });
 
-      const { password: _, ...adminWithoutPassword } = admin;
-
-      return res.json({ admin: adminWithoutPassword, token });
+      return res.json({
+        message: 'Login bem-sucedido!',
+        accessToken: token,
+        refreshToken: token,
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ issues: error.issues });
@@ -110,6 +112,7 @@ class AdminController {
   async definePassword(req: Request, res: Response) {
     try {
       const { token, password } = definePasswordSchema.parse(req.body);
+
       const admin = await prisma.admin.findUnique({
         where: { passwordResetToken: token },
       });
@@ -134,9 +137,11 @@ class AdminController {
         },
       });
 
-      return res.status(200).json({
-        message: 'Senha definida com sucesso! Você já pode fazer login.',
-      });
+      return res
+        .status(200)
+        .json({
+          message: 'Senha definida com sucesso! Você já pode fazer login.',
+        });
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ issues: error.issues });
