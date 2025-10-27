@@ -21,6 +21,8 @@ model Admin {
   secretariatRecords SecretariatRecord[]
 
   events             Event[]
+
+  meetings           Meeting[]
 }
 
 model SecretariatRecord {
@@ -51,4 +53,21 @@ model Event {
   authorId    String
 
   @@map("events")
+}
+
+model Meeting {
+  id          String   @id @default(uuid())
+  dayOfWeek   String
+  time        String
+  type        String
+  category    String
+  roomOpener  String
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author      Admin    @relation(fields: [authorId], references: [id])
+  authorId    String
+
+  @@map("meetings")
 }
