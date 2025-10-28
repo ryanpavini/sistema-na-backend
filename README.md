@@ -86,7 +86,7 @@ Guia para configurar e rodar o ambiente de desenvolvimento do backend.
     # Aplica as migrações (cria as tabelas)
     npx prisma migrate dev
 
-    # Popula o banco com o primeiro admin (admin@admin.com / admin123)
+    # Popula o banco com o primeiro admin (admin@admin.com / Admin_123)
     npx prisma db seed
     ```
 
