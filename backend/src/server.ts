@@ -11,7 +11,10 @@ const corsOptions = {
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type, Authorization, x-api-key"
 };
+
 const app = express();
+
+app.options('*', cors(corsOptions));
 
 app.use(cors(corsOptions)); // 1. CORS
 app.use(express.json());   // 2. Body Parser
