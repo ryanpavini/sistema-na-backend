@@ -69,10 +69,10 @@ Guia para configurar e rodar o ambiente de desenvolvimento do backend.
         DATABASE_URL="postgresql://usuario_projeto:senha_projeto@localhost:5432/na_api"
         FRONTEND_URL="http://localhost:5173"
 
-        # Credenciais do Gmail (Usar Senha de App de 16 dígitos)
-        EMAIL_HOST="smtp.gmail.com"
+        # Credenciais do Gmail
+        EMAIL_HOST="USAR_SMTP_GMAIL"
         EMAIL_PORT=465
-        EMAIL_USER="equipe.narcoticos.sa@gmail.com"
+        EMAIL_USER="SEU_EMAIL_GMAIL"
         EMAIL_PASS="SUA_SENHA_DE_APP_GMAIL"
 
         JWT_SECRET="um-segredo-qualquer-bem-longo"
@@ -110,4 +110,6 @@ E pronto! O backend estará a rodar em `http://localhost:3333`.
 | UX Designer       | Julia Dias Luz |
 | Dev Backend ☕    | Ryan Pavini |
 
+
 ---
+
