@@ -22,32 +22,32 @@ router.put('/admins/:id', authMiddleware, AdminController.update);
 router.delete('/admins/:id', authMiddleware, AdminController.delete);
 
 //Rotas da Secretaria
-router.post('/secretariat', authMiddleware, SecretariatController.create);
-router.get('/secretariat', SecretariatController.getLatest);
+router.post('/secretaria', authMiddleware, SecretariatController.create);
+router.get('/secretaria', SecretariatController.getLatest);
 
-//Rotas de Eventos
-router.post('/events', authMiddleware, EventController.create);
-router.get('/events', EventController.list);
+//Rotas de Eventos (CORRIGIDO de /events para /eventos)
+router.post('/eventos', authMiddleware, EventController.create);
+router.get('/eventos', EventController.list);
 
 // Rota para buscar o próximo evento (Pública)
-router.get('/events/next', EventController.getNext);
+router.get('/eventos/next', EventController.getNext);
 
 // Rota para buscar um evento específico (Pública)
-router.get('/events/:id', EventController.getOne);
+router.get('/eventos/:id', EventController.getOne);
 
 // Rota para atualizar um evento (Protegida)
-router.put('/events/:id', authMiddleware, EventController.update);
+router.put('/eventos/:id', authMiddleware, EventController.update);
 
 // Rota para excluir um evento (Protegida)
-router.delete('/events/:id', authMiddleware, EventController.delete);
+router.delete('/eventos/:id', authMiddleware, EventController.delete);
 
 //Rotas de Reuniões
-router.post('/meetings', authMiddleware, MeetingController.create);
-router.get('/meetings', MeetingController.list);
-router.get('/meetings/today', MeetingController.getTodayMeetings);
-router.get('/meetings/:id', MeetingController.getOne);
-router.put('/meetings/:id', authMiddleware, MeetingController.update);
-router.delete('/meetings/:id', authMiddleware, MeetingController.delete);
+router.post('/reunioes', authMiddleware, MeetingController.create);
+router.get('/reunioes', MeetingController.list);
+router.get('/reunioes/today', MeetingController.getTodayMeetings);
+router.get('/reunioes/:id', MeetingController.getOne);
+router.put('/reunioes/:id', authMiddleware, MeetingController.update);
+router.delete('/reunioes/:id', authMiddleware, MeetingController.delete);
 
 
 export default router;
