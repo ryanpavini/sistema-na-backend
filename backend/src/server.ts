@@ -11,17 +11,12 @@ const corsOptions = {
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type, Authorization, x-api-key"
 };
-
 const app = express();
-const PORT = 3333;
 
-app.use(cors(corsOptions));
-
-app.use(express.json());
-app.use(apiKeyMiddleware);
+app.use(cors(corsOptions)); // 1. CORS
+app.use(express.json());   // 2. Body Parser
+app.use(apiKeyMiddleware); // 3. API Key Check
 
 app.use(router);
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+module.exports = app;
