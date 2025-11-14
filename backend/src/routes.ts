@@ -28,26 +28,25 @@ router.get('/secretariat', SecretariatController.getLatest);
 //Rotas de Eventos
 router.post('/events', authMiddleware, EventController.create);
 router.get('/events', EventController.list);
+
+// Rota para buscar o próximo evento (Pública)
+router.get('/events/next', EventController.getNext);
+
+// Rota para buscar um evento específico (Pública)
 router.get('/events/:id', EventController.getOne);
+
+// Rota para atualizar um evento (Protegida)
 router.put('/events/:id', authMiddleware, EventController.update);
+
+// Rota para excluir um evento (Protegida)
 router.delete('/events/:id', authMiddleware, EventController.delete);
 
-// Rota para criar uma nova reunião (Protegida)
+//Rotas de Reuniões
 router.post('/meetings', authMiddleware, MeetingController.create);
-
-// Rota para listar todas as reuniões (Pública)
 router.get('/meetings', MeetingController.list);
-
-// Rota para listar as reuniões do dia atual (Pública)
 router.get('/meetings/today', MeetingController.getTodayMeetings);
-
-// Rota para buscar uma reunião específica (Pública)
 router.get('/meetings/:id', MeetingController.getOne);
-
-// Rota para atualizar uma reunião (Protegida)
 router.put('/meetings/:id', authMiddleware, MeetingController.update);
-
-// Rota para excluir uma reunião (Protegida)
 router.delete('/meetings/:id', authMiddleware, MeetingController.delete);
 
 
