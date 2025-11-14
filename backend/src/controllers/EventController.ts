@@ -3,11 +3,9 @@ import { PrismaClient } from '@prisma/client';
 import { z } from 'zod';
 
 const prisma = new PrismaClient();
-
 interface AuthenticatedRequest extends Request {
   adminId?: string;
 }
-
 const eventSchema = z.object({
   title: z.string().min(1, 'O título é obrigatório.'),
   description: z.string().min(1, 'A descrição é obrigatória.'),
@@ -18,8 +16,6 @@ const eventSchema = z.object({
 });
 
 const updateEventSchema = eventSchema.partial();
-
-
 class EventController {
   async create(req: AuthenticatedRequest, res: Response) {
     try {
@@ -28,7 +24,6 @@ class EventController {
       if (!adminId) {
         return res.status(401).json({ error: 'Ação não autorizada.' });
       }
-
       const event = await prisma.event.create({
         data: {
           ...data,
@@ -46,12 +41,11 @@ class EventController {
       return res.status(500).json({ error: 'Ocorreu um erro ao criar o evento.' });
     }
   }
-
   async list(req: Request, res: Response) {
     try {
       const events = await prisma.event.findMany({
         orderBy: {
-          dateTime: 'asc', 
+          dateTime: 'asc',
         },
         include: {
           author: {
@@ -67,7 +61,6 @@ class EventController {
       return res.status(500).json({ error: 'Ocorreu um erro ao listar os eventos.' });
     }
   }
-
   async getOne(req: Request, res: Response) {
     try {
       const { id } = req.params;
@@ -91,7 +84,6 @@ class EventController {
       return res.status(500).json({ error: 'Ocorreu um erro ao buscar o evento.' });
     }
   }
-
   async update(req: AuthenticatedRequest, res: Response) {
     try {
       const { id } = req.params;
@@ -129,6 +121,37 @@ class EventController {
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Ocorreu um erro ao excluir o evento.' });
+    }
+  }
+
+  async getNext(req: Request, res: Response) {
+    try {
+      const now = new Date();
+      const nextEvent = await prisma.event.findFirst({
+        where: {
+          dateTime: {
+            gt: now,
+          },
+        },
+        orderBy: {
+          dateTime: 'asc',
+        },
+        include: {
+          author: {
+            select: { name: true },
+          },
+        },
+      });
+
+      if (!nextEvent) {
+        return res.status(404).json({ error: 'Nenhum próximo evento encontrado.' });
+      }
+
+      return res.json(nextEvent);
+
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Ocorreu um erro ao buscar o próximo evento.' });
     }
   }
 }
