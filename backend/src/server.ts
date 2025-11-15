@@ -26,13 +26,12 @@ const corsOptions = {
 const app = express();
 const PORT = 3333;
 
-app.options('*', cors(corsOptions)); 
-
 app.use(cors(corsOptions));
 
 app.use(express.json());
-app.use('/', apiKeyMiddleware, router);
 
+app.use(apiKeyMiddleware);
+app.use(router);
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
