@@ -5,6 +5,12 @@
 ![Status do Projeto](https://img.shields.io/badge/STATUS-CONCLUÍDO-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+## 🌐 Links de Acesso
+
+* **📱 Área Pública (Membros):** [https://grupopaz.vercel.app](https://grupopaz.vercel.app)
+
+---
+
 ## 🎯 Sobre o Projeto
 
 Este sistema foi desenvolvido para resolver a fragmentação de informações enfrentada pelo grupo **Grupo Paz**. Anteriormente, dados cruciais sobre reuniões, eventos e finanças estavam dispersos em cadernos físicos e mensagens de WhatsApp.
@@ -146,4 +152,3 @@ Projeto desenvolvido pelos alunos da **Faculdade de Tecnologia da UNICAMP (FT)**
 <p align="center">
   Feito com 💙 para o Grupo Paz.
 </p>
-
