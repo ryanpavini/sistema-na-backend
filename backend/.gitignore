@@ -1,6 +1,39 @@
+# Dependências
 node_modules
-# Keep environment variables out of version control
-.env
 
+# Build e Distribuição
+dist/
+build/
+
+# Variáveis de Ambiente (Segurança)
+.env
+.env.production
+.env.local
+.env.*.local
+
+# Prisma
 /generated/prisma
+
+# Vercel
 .vercel
+
+# Logs (Erros do NPM/Yarn e logs do sistema)
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Arquivos de Sistema Operacional (Lixo do Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# Editores de Código (Configurações locais do VS Code/IntelliJ)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testes (Relatórios de cobertura de código)
+coverage/
