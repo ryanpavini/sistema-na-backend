@@ -139,10 +139,11 @@ Projeto desenvolvido pelos alunos da **Faculdade de Tecnologia da UNICAMP (FT)**
 * **Julia Dias Luz** - UX/UI Designer
 * **Juliana da Costa Silva** - Scrum Master
 * **Maria Luíza Sperancin Mancebo** - Product Owner & Dev
-* **Ryan Pavini** - Desenvolvedor Backend/Frontend
+* **Ryan Pavini** - Desenvolvedor Backend
 
 ---
 
 <p align="center">
   Feito com 💙 para o Grupo Paz.
 </p>
+
