@@ -1,115 +1,148 @@
-# 🚀 Sistema de Gestão - Narcóticos Anônimos (NA)
+# 🕊️ Sistema de Gestão - Grupo Paz (Narcóticos Anônimos)
 
-Este é o repositório do nosso Projeto Integrador da disciplina "Projeto Integrador" na Faculdade de Tecnologia da Universidade Estadual de Campinas (FT/UNICAMP). Estamos construindo um sistema para ajudar um grupo de NA a organizar suas reuniões, eventos e comunicados.
+> Projeto Integrador desenvolvido para centralizar a comunicação, gestão de eventos e transparência financeira do grupo NA.
+
+![Status do Projeto](https://img.shields.io/badge/STATUS-CONCLUÍDO-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+## 🎯 Sobre o Projeto
+
+Este sistema foi desenvolvido para resolver a fragmentação de informações enfrentada pelo grupo **Grupo Paz**. Anteriormente, dados cruciais sobre reuniões, eventos e finanças estavam dispersos em cadernos físicos e mensagens de WhatsApp.
+
+A plataforma oferece uma solução centralizada, segura e acessível, dividida em duas frentes:
+1.  **Área Pública:** Acesso facilitado para membros consultarem a agenda de reuniões, mural de eventos e prestação de contas (Sétima Tradição) sem necessidade de login.
+2.  **Área Administrativa:** Painel restrito para servidores de confiança gerenciarem o conteúdo e a tesouraria do grupo.
 
 ---
 
-### 🎯 O Problema que Estamos Resolvendo
+## 🛠️ Tecnologias Utilizadas
 
-A comunicação no grupo atualmente depende de cadernos físicos e WhatsApp. Isso causa problemas como perda de informações, dificuldade de organização e ruídos na comunicação.
+O projeto foi construído utilizando uma arquitetura desacoplada (**Frontend** separado do **Backend**), garantindo escalabilidade e facilidade de manutenção.
 
-Nosso objetivo é criar uma plataforma centralizada para acabar com essa bagunça. A ideia é ter um lugar único e confiável para todas as informações importantes, melhorando a comunicação e a eficiência do grupo.
+### Frontend (Interface)
+* ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) **React + Vite:** Para uma interface rápida e reativa.
+* ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) **TypeScript:** Para tipagem estática e segurança no código.
+* **CSS Modules:** Para estilização modular e isolada.
 
-### ✨ Features Principais
+### Backend (API)
+* ![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white) **Node.js + Express:** API RESTful robusta.
+* ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=flat&logo=Prisma&logoColor=white) **Prisma ORM:** Para interação segura e tipada com o banco de dados.
+* ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white) **PostgreSQL:** Banco de dados relacional para integridade dos dados.
+* **Zod:** Validação rigorosa de esquemas de dados.
+* **Nodemailer:** Serviço de envio de e-mails transacionais (recuperação de senha).
 
-- **📅 Agenda de Reuniões:** Um calendário ou lista para ver todas as reuniões semanais.
-- **🎉 Mural de Eventos:** Uma área para divulgar eventos únicos, como confraternizações e workshops.
-- **📢 Dados da Secretaria:** Acesso rápido e transparente aos dados financeiros do grupo, como a Sétima Tradição.
-- **👀 Acesso Público:** Membros podem consultar tudo sem precisar de login.
-- **🔒 Painel Admin:** Uma área segura para os servidores de confiança gerenciarem as informações.
+### Segurança & Deploy
+* **JWT & Bcrypt:** Autenticação segura e criptografia de senhas.
+* **Vercel:** Plataforma de hospedagem utilizada para Frontend e Backend.
 
-### 🛠️ Nossa Stack
+---
 
-| Área      | Tecnologias                                                  |
-| --------- | ------------------------------------------------------       |
-| **Backend** | Node.js, TypeScript, Express, Prisma, PostgreSQL, JWT, Zod |
-                                      
-### 🚀 Rodando o Backend Localmente
+## ✨ Funcionalidades Principais
 
-Guia para configurar e rodar o ambiente de desenvolvimento do backend.
+### 🔓 Acesso Público
+* **Agenda Semanal:** Visualização clara dos dias e horários das reuniões.
+* **Mural de Eventos:** Divulgação de confraternizações e workshops.
+* **Transparência Financeira:** Visualização dos saldos atuais da secretaria (Dinheiro e Pix).
 
-**Você vai precisar de:**
-* Node.js (v18+)
-* NPM ou Yarn
+### 🔒 Acesso Administrativo (Restrito)
+* **Gestão de Eventos:** Criar, editar e remover eventos do mural.
+* **Gestão de Reuniões:** Configurar a grade horária das reuniões.
+* **Controle de Secretaria:** Registrar entradas financeiras com histórico imutável (trilha de auditoria).
+* **Gestão de Usuários:** Convidar novos administradores e gerenciar permissões.
+* **Recuperação de Senha:** Fluxo seguro via e-mail.
+
+---
+
+## 🚀 Como Rodar o Projeto Localmente
+
+### Pré-requisitos
+* Node.js (v20 ou superior)
+* Gerenciador de pacotes (NPM ou Yarn)
 * Git
-* PostgreSQL
-* Uma conta gratuita no **[Mailtrap.io](https://mailtrap.io/)** (para testar os e-mails)
 
-**Passo a passo:**
+### 1. Configurando o Backend
 
-1.  **Clone o repositório e instale as dependências:**
+1.  Entre na pasta do backend:
     ```bash
-    git clone <URL_DO_REPOSITORIO_BACKEND>
-    cd na-sistema
+    cd backend
+    ```
+2.  Instale as dependências:
+    ```bash
     npm install
     ```
-
-2.  **Configure o Banco de Dados (PostgreSQL):**
-    * Abra o `psql` ou a sua ferramenta de gestão de base de dados.
-    * Execute os seguintes comandos SQL para criar o utilizador e o banco de dados para este projeto:
-
-    ```sql
-    -- Cria um utilizador (role) para a aplicação
-    CREATE USER usuario_projeto WITH PASSWORD 'senha_projeto';
-
-    -- Cria o banco de dados
-    CREATE DATABASE na_api;
-
-    -- Dá todas as permissões do banco para o novo utilizador
-    GRANT ALL PRIVILEGES ON DATABASE na_api TO usuario_projeto;
-
-    -- Permite que o novo utilizador crie outros bancos (necessário para o Prisma)
-    ALTER USER usuario_projeto CREATEDB;
+3.  Configure as variáveis de ambiente:
+    * Crie um arquivo `.env` na raiz da pasta `backend`.
+    * Copie o conteúdo de `.env.example` e preencha os valores reais:
+    ```env
+    DATABASE_URL="postgresql://usuario:senha@host:5432/nome_banco"
+    JWT_SECRET="sua_chave_secreta_jwt"
+    API_KEY="chave_compartilhada_front_back"
+    FRONTEND_URL="http://localhost:5173"
+    EMAIL_HOST="smtp.gmail.com"
+    EMAIL_PORT=465
+    EMAIL_USER="seu_email@gmail.com"
+    EMAIL_PASS="sua_senha_de_app"
+    SUPER_ADMIN_EMAIL="admin@exemplo.com"
+    SUPER_ADMIN_PASSWORD="senha_inicial"
     ```
-
-3.  **Configure as Variáveis de Ambiente (`.env`):**
-    * Na pasta `na-sistema/backend`, copie o ficheiro `.env.example` para um novo ficheiro chamado `.env`.
-    * Preencha-o com os seus dados. Ele deve ficar parecido com isto:
-        ```env
-        DATABASE_URL="postgresql://usuario_projeto:senha_projeto@localhost:5432/na_api"
-        FRONTEND_URL="http://localhost:5173"
-
-        # Credenciais do Gmail
-        EMAIL_HOST="USAR_SMTP_GMAIL"
-        EMAIL_PORT=465
-        EMAIL_USER="SEU_EMAIL_GMAIL"
-        EMAIL_PASS="SUA_SENHA_DE_APP_GMAIL"
-
-        JWT_SECRET="um-segredo-qualquer-bem-longo"
-        API_KEY="chave-secreta-da-api-12345"
-
-        # E-mail do super admin
-        SUPER_ADMIN_EMAIL="EMAIL_SUPER_ADMIN"
-
-        # Senha padrão para o Super Admin
-        SUPER_ADMIN_PASSWORD="SENHA_SUPER_ADMIN"
-        ```
-
-4.  **Prepare o Banco de Dados com o Prisma:**
-    * Estes comandos vão criar as tabelas e popular o banco com o primeiro administrador.
+4.  Execute as migrações do banco de dados:
     ```bash
-    # Aplica as migrações (cria as tabelas)
     npx prisma migrate dev
-
-    # Popula o banco com o primeiro admin (admin@admin.com / Admin@2025!)
+    ```
+5.  (Opcional) Popule o banco com dados iniciais:
+    ```bash
     npx prisma db seed
     ```
-
-5.  **Suba o servidor:**
+6.  Inicie o servidor:
     ```bash
     npm run dev
     ```
-E pronto! O backend estará a rodar em `http://localhost:3333`.
 
-### 👥 A Equipe
+### 2. Configurando o Frontend
 
-| Papel             | Quem é          |
-| ----------------- | --------------- |
-| Product Owner (PO) | Maria Luiza Sperancin Mancebo |
-| Scrum Master      | Juliana da Costa Silva |
-| UX Designer       | Julia Dias Luz |
-| Dev Backend ☕    | Ryan Pavini |
-
+1.  Entre na pasta do frontend (em outro terminal):
+    ```bash
+    cd frontend
+    ```
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+3.  Configure as variáveis de ambiente:
+    * Crie um arquivo `.env` na raiz da pasta `frontend`.
+    * Preencha com os dados do seu backend local:
+    ```env
+    VITE_API_BASE_URL="http://localhost:3333"
+    VITE_API_KEY="a_mesma_chave_definida_no_backend"
+    ```
+4.  Inicie a aplicação:
+    ```bash
+    npm run dev
+    ```
+5.  Acesse `http://localhost:5173` no seu navegador.
 
 ---
 
+## 📂 Estrutura do Repositório
+
+O projeto está organizado em dois diretórios principais:
+
+* `/backend`: Contém a API, modelos do Prisma, Controllers, Middlewares e configurações de envio de e-mail.
+* `/frontend`: Contém a aplicação React, componentes, páginas e serviços de integração.
+
+---
+
+## 👥 Autores
+
+Projeto desenvolvido pelos alunos da **Faculdade de Tecnologia da UNICAMP (FT)** para a disciplina de Projeto Integrador:
+
+* **Julia Dias Luz** - UX/UI Designer
+* **Juliana da Costa Silva** - Scrum Master
+* **Maria Luíza Sperancin Mancebo** - Product Owner & Dev
+* **Ryan Pavini** - Desenvolvedor Backend/Frontend
+
+---
+
+<p align="center">
+  Feito com 💙 para o Grupo Paz.
+</p>
